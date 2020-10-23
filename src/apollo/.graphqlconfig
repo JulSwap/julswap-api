@@ -1,0 +1,15 @@
+{
+  "name": "BSCswap",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "BSCswap": {
+        "url": "https://subgraph.swapliquidity.org/subgraphs/name/swapliquidity/subgraph",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": false
+      }
+    }
+  }
+}
