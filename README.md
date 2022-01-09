@@ -1,25 +1,25 @@
-# SwapLiquidity API 
+# JulSwap API 
 
-The SwapLiquidity API is a set of endpoints used by market aggregators (e.g. coinmarketcap.com) to surface SwapLiquidity liquidity
+The JulSwap API is a set of endpoints used by market aggregators (e.g. coinmarketcap.com) to surface JulSwap liquidity
 and volume information. All information is fetched from the underlying subgraphs.
 
 The API is designed around the CoinMarketCap
 [requirements document](https://docs.google.com/document/d/1S4urpzUnO2t7DmS_1dc4EL4tgnnbTObPYXvDeBnukCg).
 
-Prefer the SwapLiquidity subgraph for any SwapLiquidity queries whenever possible.
+Prefer the JulSwap subgraph for any JulSwap queries whenever possible.
 
-SwapLiquidity Subgraph: https://github.com/justliquidity/SwapLiquidity-subgraph
+JulSwap Subgraph: https://github.com/justliquidity/SwapLiquidity-subgraph
 
-# SwapLiquidity Endpoints
+# JulSwap Endpoints
 
-All SwapLiquidity pairs consist of two different tokens. BNB is not a native currency in SwapLiquidity, and is represented
+All JulSwap pairs consist of two different tokens. BNB is not a native currency in JulSwap, and is represented
 only by WBNB in the pairs.
 
-The canonical WBNB address used by the SwapLiquidity interface is `0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c`.
+The canonical WBNB address used by the JulSwap interface is `0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c`.
 
 ## [`/summary`](https://api-v1.julswap.com/summary)
 
-Returns data for the top ~1000 SwapLiquidity pairs, sorted by reserves.
+Returns data for the top ~1000 JulSwap pairs, sorted by reserves.
 Results are edge cached for 15 minutes.
 
 ### Request
@@ -42,7 +42,7 @@ Results are edge cached for 15 minutes.
 
 ## [`/totalliquidity`](https://api-v1.julswap.com/totalliquidity)
 
-Returns the total liquidity in USD value on SwapLiquidity.
+Returns the total liquidity in USD value on JulSwap.
 Results are edge cached for 24 hours.
 
 ### Request
@@ -61,7 +61,7 @@ Results are edge cached for 24 hours.
 
 ## [`/assets`](https://api-v1.julswap.com/assets)
 
-Returns the tokens in the top ~1000 pairs on SwapLiquidity, sorted by reserves.
+Returns the tokens in the top ~1000 pairs on JulSwap, sorted by reserves.
 Results are edge cached for 24 hours.
 
 ### Request
@@ -114,9 +114,9 @@ Results are edge cached for 1 minute.
 
 ## `/orderbook/:pair`
 
-Returns simulated orderbook data for the given SwapLiquidity pair.
-Since SwapLiquidity has a continuous orderbook, fixed amounts in an interval are chosen for bids and asks,
-and prices are derived from the SwapLiquidity formula (accounting for both slippage and fees paid to LPs).
+Returns simulated orderbook data for the given JulSwap pair.
+Since JulSwap has a continuous orderbook, fixed amounts in an interval are chosen for bids and asks,
+and prices are derived from the JulSwap formula (accounting for both slippage and fees paid to LPs).
 Results are edge cached for 15 minutes.
 
 ### Request
@@ -147,13 +147,13 @@ Results are edge cached for 15 minutes.
 
 ## `/trades/:pair`
 
-Returns all swaps in the last 24 hours for the given SwapLiquidity pair.
+Returns all swaps in the last 24 hours for the given JulSwap pair.
 Results are edge cached for 15 minutes.
 
 The pair address is the address of the two tokens in either order.
 The first address is considered the base in the response.
 
-Note because SwapLiquidity supports flash swaps and borrowing of both tokens in a pair, you may wish to exclude these
+Note because JulSwap supports flash swaps and borrowing of both tokens in a pair, you may wish to exclude these
 trade types (types `"???"` and `"borrow-both"`).
 
 ### URL Parameters
